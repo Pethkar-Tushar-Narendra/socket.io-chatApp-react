@@ -48,7 +48,6 @@ export default function ChatBox() {
   const sendHandler = () => {
     try {
       socket.emit('sendMessage', { from: userName, message });
-      alert('message sent');
       setMessage('');
     } catch (error) {
       alert(error.message);
