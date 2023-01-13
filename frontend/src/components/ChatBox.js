@@ -14,13 +14,14 @@ const ENDPOINT =
 export default function ChatBox() {
   const uiMessagesRef = useRef(null);
   const [message, setMessage] = useState('');
+  const [userName, setUsername] = useState('');
   const [emojiSelector, setEmojiSelector] = useState(false);
   const [socket, setSocket] = useState(null);
   const [messages, setMessages] = useState([
     { from: 'System', message: 'Welcome, You can chat now.' },
   ]);
   const user_list = ['Alan', 'Bob', 'Carol', 'Dean', 'Elin'];
-  var userName = user_list[Math.floor(Math.random() * 5)];
+  setUsername(user_list[Math.floor(Math.random() * 5)]);
   useEffect(() => {
     if (uiMessagesRef.current) {
       uiMessagesRef.current.scrollBy({
