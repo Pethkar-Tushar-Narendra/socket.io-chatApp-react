@@ -21,7 +21,6 @@ export default function ChatBox() {
     { from: 'System', message: 'Welcome, You can chat now.' },
   ]);
   const user_list = ['Alan', 'Bob', 'Carol', 'Dean', 'Elin'];
-  setUsername(user_list[Math.floor(Math.random() * 5)]);
   useEffect(() => {
     if (uiMessagesRef.current) {
       uiMessagesRef.current.scrollBy({
@@ -33,6 +32,7 @@ export default function ChatBox() {
     if (!socket) {
       const sk = socketIOClient(ENDPOINT);
       setSocket(sk);
+      setUsername(user_list[Math.floor(Math.random() * 5)]);
     } else {
       socket.emit('onLogin', { name: userName });
       socket.on('message', (data) => {
