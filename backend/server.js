@@ -17,7 +17,7 @@ var messages = [{ from: 'System', message: 'Welcome, You can start Chatting' }];
 
 io.on('connection', (socket) => {
   socket.on('onLogin', (user) => {
-    console.log(user.name);
+    //if we want to use userName or user info
   });
   socket.on('sendMessage', (data) => {
     console.log(data);
